@@ -12,11 +12,12 @@ const browserSync = require('browser-sync');
 
 gulp.task('twig', () => {
   return gulp
-    .src('src/templates/*.html.twig')
+    .src('src/templates/index.html.twig')
     .pipe(twig())
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'));
 });
+
 
 gulp.task('sass', () => {
   return gulp
@@ -28,7 +29,17 @@ gulp.task('sass', () => {
       })
     )
     .pipe(autoprefixer({ browsers: ['last 2 versions'] }))
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/assets/css'));
+});
+
+gulp.task('image', () => {
+  return gulp.src('src/image/*').pipe(gulp.dest('dist/assets/image'));
+});
+
+gulp.task('dependencyJs', () => {
+  return gulp
+  .src(['node_modules/jquery/dist/jquery.min.js','node_modules/bootstrap/dist/js/bootstrap.min.js'])
+  .pipe(gulp.dest('dist/assets/js/'));
 });
 
 gulp.task('stylelint', () => {
@@ -43,7 +54,7 @@ gulp.task('babel', () => {
   return gulp
     .src('src/js/*.js')
     .pipe(babel())
-    .pipe(gulp.dest('dist'));
+    .pipe(gulp.dest('dist/assets/js'));
 });
 
 gulp.task('eslint', () => {
@@ -53,20 +64,21 @@ gulp.task('eslint', () => {
     .pipe(eslint.format());
 });
 
-gulp.task('browsersync', () => {
+gulp.task('browsersync', (done) => {
   browserSync.init({
     server: {
       baseDir: './dist'
     }
   });
   gulp.watch(
-    ['src/sass/**/*.scss', 'src/js/*.js'],
-    ['build', browserSync.reload]
+    ['src/sass/**/*.scss','src/sass/*.scss','src/sass/*.html.twig', 'src/js/*.js'],
+    gulp.series(['build', browserSync.reload])
   );
+  done();
 });
 
-gulp.task('lint', ['stylelint', 'eslint']);
-gulp.task('build', ['twig', 'sass', 'babel']);
-gulp.task('server', ['browsersync']);
+gulp.task('lint', gulp.series(['stylelint', 'eslint']));
+gulp.task('build', gulp.series(['twig', 'sass', 'babel', 'image','dependencyJs']));
+gulp.task('server', gulp.series([ 'build','browsersync']));
 
-gulp.task('default', ['lint', 'build']);
+gulp.task('default', gulp.series(['lint', 'build']));
