@@ -1,0 +1,16 @@
+{% if subSubMenu %}
+<li class="nav-item dropdown">
+  <a class="dropdown-item dropdown-toggle" href="#" id="{{dropdownId}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{linkText}}
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="{{dropdownId}}">
+    {% for menu in subSubMenu %}
+    <li><a class="dropdown-item" href="#">{{menu.linkText}}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</li>
+{% else %}
+<li><a class="dropdown-item" href="#">{{linkText}}</a>
+</li>
+{% endif %}

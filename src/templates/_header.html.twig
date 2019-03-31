@@ -1,0 +1,23 @@
+ <header>
+   <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+     <div class="container">
+       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation for mobile">
+         <span class="navbar-toggler-icon"></span>
+       </button>
+       <a class="navbar-brand" title="logo for website" href="#">
+         <span class="">COMPANY</span><span class="orange-text">LOGO</span>
+       </a>
+       <a title="Go to Email" class="nav-link d-block d-sm-none" href="#"> <img src="./assets/image/message.png" alt="Go to Email" title="Go to Email" /> </a>
+       <div class="collapse navbar-collapse" id="navbarMenu">
+         <ul class="navbar-nav ml-auto align-items-center">
+           {% for element in NavBarList %}
+           {% include "_navElements.html.twig" with element %}
+           {% endfor %}
+           <li class="nav-item d-none d-md-block">
+             <a class="nav-link btn-primary" title="Go to Get in Touch" href="#"> <img src="./assets/image/message.png" alt="Go to Email" title="Go to Email" /> <span>Get in Touch</span></a>
+           </li>
+         </ul>
+       </div>
+     </div>
+   </nav>
+ </header>

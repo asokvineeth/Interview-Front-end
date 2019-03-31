@@ -1,0 +1,5 @@
+{% if inputType == "text" %}
+<input type="text" class="form-control" id="{{inputId}}" aria-placeholder="{{placeholder}}" placeholder="{{placeholder}}">
+{% else %}
+<textarea class="form-control" id="{{inputId}}" rows="3" aria-labelledby="message" aria-placeholder="{{placeholder}}" placeholder="{{placeholder}}"></textarea>
+{% endif %}

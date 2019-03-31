@@ -1,0 +1,12 @@
+<section class="banner">
+  <div class="banner-caption">
+    <h1 class="banner-text">
+      {{bannerText}}
+    </h1>
+    <div class="d-block d-sm-flex justify-content-around align-items-center">
+      {% for item in bannerList %}
+      {% include "_bannerBox.html.twig" with item %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

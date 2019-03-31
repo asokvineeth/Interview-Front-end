@@ -1,0 +1,10 @@
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <h3 class="test-head">{{testimonialText}}</h3>
+    <div class="row">
+      {% for testmonial in testimonialList %}
+      {% include "_testimonial.html.twig" with testmonial %}
+      {% endfor %}
+    </div>
+  </div>
+</section>

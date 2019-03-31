@@ -1,0 +1,25 @@
+<section class="contact-us" id="contact">
+  <div class="container">
+    <h3 class="contact-title">{{contactUsTitle}}</h3>
+    <p class="contact-subtitle">{{contactUsSubTitle}}</p>
+    <form class="w-100 w-sm-75 m-auto">
+      <div class="row">
+        <div class="col-12 col-sm-4 mb-3">
+          {% include '_contactInputs.html.twig' with {inputId:'Fullname',placeholder:'Fullname',inputType:'text'} %}
+        </div>
+        <div class="col-12 col-sm-4 mb-3">
+          {% include '_contactInputs.html.twig' with {inputId:'email',placeholder:'Email Address',inputType:'text'} %}
+        </div>
+        <div class="col-12 col-sm-4 mb-3">
+          {% include '_contactInputs.html.twig' with {inputId:'phone',placeholder:'Phone Number',inputType:'text'} %}
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 col-sm-12 mb-3">
+          {% include '_contactInputs.html.twig' with {inputId:'message',placeholder:'Message in brief'} %}
+        </div>
+      </div>
+      <div class="row justify-content-center">{% include "_button.html.twig" with {"buttonClass":"submit-button col-sm-1 btn btn-primary","buttonType":"submit","buttonText":"Submit"} %}</div>
+    </form>
+  </div>
+</section>

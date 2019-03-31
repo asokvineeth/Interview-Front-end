@@ -1,0 +1,15 @@
+{% if subMenu %}
+<li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle" href="#" id="{{dropdownId}}" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    {{linkText}}
+  </a>
+  <ul class="dropdown-menu" aria-labelledby="{{dropdownId}}">
+    {% for item in subMenu %}
+    {% include "_navSubElements.html.twig" with item %}
+    {% endfor %}
+  </ul>
+</li>
+{% else %}
+<li class="nav-item">
+  <a class="nav-link" href="#">{{linkText}}</a></li>
+{% endif %}

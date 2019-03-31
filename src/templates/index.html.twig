@@ -1,12 +1,137 @@
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Axelerant: Interview Frontend</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Axelerant: Interview Frontend</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
 </head>
-<body>
-    <h3>Welcome</h3>
-    {% include "_button.html.twig" %}
 
-    <script src="main.js"></script>
+<body>
+  {% set CONTENTS = {
+      header: {
+        NavBarList: [{
+            dropdownId: 'about',
+            linkText: 'About',
+            subMenu: [{
+                linkText: 'Our Story'
+              }, {
+                linkText: 'Why Company'
+              },
+              {
+                linkText: 'Success Stories'
+              },
+              {
+                linkText: 'Careers'
+              }
+            ]
+          },
+          {
+            linkText: 'Services',
+            dropdownId: 'services',
+            subMenu: [{
+              dropdownId: 'cmsSolutions',
+              linkText: 'CMS Solutions',
+              subSubMenu: [{
+                linkText: 'Staffing'
+              }, {
+                linkText: 'Delivery Support'
+              }, {
+                linkText: 'Project Management'
+              }]
+            }, {
+              linkText: 'DevOps'
+            }, {
+              linkText: 'Marketing'
+            }, {
+              linkText: 'Quality Assurance'
+            }]
+          },
+          {
+            linkText: 'Solutions'
+          },
+          {
+            linkText: 'Blog'
+          }
+        ]
+      },
+      Banner: {
+        bannerText: 'Integer bibendum sit amet arcu vel egestas.',
+        bannerList: [{
+            bannerImg: './assets/image/staff1.png',
+            bannerText: 'Service Name'
+          },
+          {
+            bannerImg: './assets/image/staff2.png',
+            bannerText: 'Service Name'
+          },
+          {
+            bannerImg: './assets/image/staff3.png',
+            bannerText: 'Service Name'
+          }
+        ]
+      },
+      aboutUs: {
+        class: 'about',
+        id: 'about',
+        header: 'Mauris id bibendum est. Proin dapibus sollicitudin iaculis, Maecenas condimentum maximus laoreet.',
+        content: 'In maximus euismod egestas. Fusce tincidunt posuere est non elementum. Vivamus tincidunt eleifend nisl et gravida. Aenean in lorem ultrices, pellentesque augue eu, mattis est. Praesent sed volutpat nibh. Morbi faucibus tortor sed neque vulputate hendrerit. Sed aliquam mattis purus eleifend consectetur. Nulla mollis non enim non tempus.',
+        imgClass: 'about-img img-fluid',
+        image: './assets/image/about.png'
+      },
+      Testimonials: {
+        testimonialText: 'Testimonials',
+        testimonialList: [{
+            cardTitle: 'Mauris at quam at mauris venenatis eleifend. Nullam eleifend odio a pretium dignissim. Aenean non rhoncus quam.',
+            userName: 'CLIENT NAME',
+            userLocation: 'Position, ORG'
+          },
+          {
+            cardTitle: 'Nunc ut ipsum iaculis, dictum magna id, lacinia ante. Nulla facilisi. Integer lobortis in risus eget volutpat. Donec interdum elit eget quam aliquam sodales. Vestibulum auctor auctor finibus.',
+            userName: 'CLIENT NAME',
+            userLocation: 'Position, ORG'
+          },
+          {
+            cardTitle: 'Mauris id bibendum est. Proin dapibus sollicitudin iaculis. Maecenas condimentum maximus laoreet. In maximus euismod egestas.',
+            userName: 'CLIENT NAME',
+            userLocation: 'Position, ORG'
+          }
+        ]
+      },
+      contactUs: {
+        contactUsTitle: 'Convinced To Work With Us?',
+        contactUsSubTitle: 'Company has helped agencies keep their promises to clients since 2005.'
+      },
+      footer: {
+        iconList: [{
+            gotoText: 'Go to Facebook',
+            imgSrc: './assets/image/facebook.png'
+          },
+          {
+            gotoText: 'Go to linkedin',
+            imgSrc: './assets/image/linkedin.png'
+          },
+          {
+            gotoText: 'Go to twitter',
+            imgSrc: './assets/image/twitter.png'
+          },
+          {
+            gotoText: 'Go to Email',
+            imgSrc: './assets/image/envelope.png'
+          }
+        ]
+      }
+    }
+  %}
+
+  {% include "_header.html.twig" with CONTENTS.header %}
+  {% include "_banner.html.twig" with CONTENTS.Banner %}
+  {% include "_about.html.twig" with CONTENTS.aboutUs %}
+  {% include "_testimonials.html.twig" with CONTENTS.Testimonials %}
+  {% include "_contactus.html.twig" with CONTENTS.contactUs %}
+  {% include "_footer.html.twig" with CONTENTS.footer %}
+  <script src="assets/js/jquery.min.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/main.js"></script>
 </body>
+
+</html>
