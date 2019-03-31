@@ -19,9 +19,10 @@
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-env": "^1.7.0",
+    "bootstrap": "^4.3.1",
     "breakpoint-sass": "^2.7.1",
     "browser-sync": "^2.24.4",
-    "gulp": "^3.9.1",
+    "gulp": "^4.0.0",
     "gulp-autoprefixer": "^5.0.0",
     "gulp-babel": "^7.0.1",
     "gulp-eslint": "^4.0.2",
@@ -38,5 +39,9 @@
     "stylelint": "^9.2.1",
     "stylelint-config-recommended": "^2.1.0",
     "stylelint-scss": "^3.1.0"
+  },
+  "dependencies": {
+    "gulp-cli": "^2.1.0",
+    "jquery": "^3.3.1"
   }
 }
